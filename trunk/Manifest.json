@@ -1,0 +1,38 @@
+{
+  "info" :
+  {
+    "name" : "qxm",
+    "category" : ["widget", "tool", "utility"],
+
+    "summary" : "qxm",
+    "description" : "Modules of the standard qooxdoo framework.",
+
+    "homepage" : "http://contrib.qooxdoo.org/project/qxm",
+
+    "license" : "LGPL/EPL",
+    "authors" :
+    [
+      {
+        "name" : "Stefan Andersson (sand)",
+        "email" : "stefan.andersson@cost-savers.net"
+      }
+    ],
+
+    "version" : "trunk",
+    "qooxdoo-versions": ["3.6"],
+
+    "download" : "",
+    "checksum" : ""
+  },
+
+  "provides" :
+  {
+    "namespace"   : "qxm",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "contribution"
+  }
+}
+
