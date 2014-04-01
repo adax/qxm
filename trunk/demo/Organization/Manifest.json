@@ -1,0 +1,33 @@
+{
+  "info" : 
+  {
+    "name" : "qxm Organization Demo",
+
+    "summary" : "qxm module framework Demo",
+    "description" : "Module of the standard qooxdoo framework demo.",
+    
+    "homepage" : "http://demo.qooxdoo.org/contrib/qxm",
+
+    "license" : "LGPL/EPL",
+    "authors" : 
+    [
+      {
+        "name" : "Stefan Andersson (sand)",
+        "email" : "stefan.andersson@cost-savers.net"
+      }
+    ],
+
+    "version" : "trunk",
+    "qooxdoo-versions": ["3.6"]
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "qxm.demo",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "application"
+  }
+}
