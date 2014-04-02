@@ -231,8 +231,6 @@ qx.util.Serializer.toUriParameter(model);
 
         case "button-pane":
           control = new qxe.ui.form.ButtonPane();
-//          control._getLayout().setAlignX("center");
-//          control.setMargin(5);
 
           // Button pane buttons
           var loginDef = {
