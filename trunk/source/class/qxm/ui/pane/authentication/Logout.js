@@ -21,7 +21,11 @@
 qx.Class.define("qxm.ui.pane.authentication.Logout",
 {
   extend : qxe.ui.pane.OptionPane,
-
+/*
+  include : [
+    qxe.ui.form.MFormItemControl
+  ],
+*/
 
   /*
    *****************************************************************************
@@ -42,16 +46,7 @@ qx.Class.define("qxm.ui.pane.authentication.Logout",
       MEMBERS
    *****************************************************************************
    */
-/*  
-  //Forces caches to obtain a new copy of the page from the origin server
-  response.setHeader("Cache-Control","no-cache");
-  //Directs caches not to store the page under any circumstance
-  response.setHeader("Cache-Control","no-store");
-  //Causes the proxy cache to see the page as "stale"
-  response.setDateHeader("Expires", 0);
-  //HTTP 1.0 backward compatibility
-  response.setHeader("Pragma","no-cache");
-*/
+
   members :
   {
     // Overridden
@@ -62,16 +57,8 @@ qx.Class.define("qxm.ui.pane.authentication.Logout",
       switch(id)
       {
         case "logout-pane":
-          var def = qxe.ui.pane.OptionPane.QUEST;
-/*          def["buttonPane"] = {
-            buttons : {
-              OK : qxe.ui.form.ButtonPane.OK,
-              CANCEL : qxe.ui.form.ButtonPane.CANCEL
-            }
-          };
-*/
           control = new qxe.ui.pane.OptionPane(this.tr("Are you sure you want to log out?"));
-          control.set(def);
+          control.set(qxe.ui.pane.OptionPane.QUEST);
 
           this._add(control);
           break;

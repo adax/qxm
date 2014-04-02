@@ -16,9 +16,9 @@
 ************************************************************************ */
 
 /**
- * A logged out option pane.
+ * A logged in option pane.
  */
-qx.Class.define("qxm.ui.pane.authentication.LoggedOut",
+qx.Class.define("qxm.ui.pane.authentication.LoggedIn",
 {
   extend : qxe.ui.pane.OptionPane,
 
@@ -33,7 +33,7 @@ qx.Class.define("qxm.ui.pane.authentication.LoggedOut",
   {
     this.base(arguments);
 
-    this._createChildControl("loggedout-pane");
+    this._createChildControl("loggedin-pane");
   },
 
 
@@ -52,8 +52,8 @@ qx.Class.define("qxm.ui.pane.authentication.LoggedOut",
 
       switch(id)
       {
-        case "loggedout-pane":
-          control = new qxe.ui.pane.OptionPane(this.tr("You are now logged out."));
+        case "loggedin-pane":
+          control = new qxe.ui.pane.OptionPane(this.tr("You are now logged in."));
           control.set(qxe.ui.pane.OptionPane.INFO);
 
           this._add(control);
