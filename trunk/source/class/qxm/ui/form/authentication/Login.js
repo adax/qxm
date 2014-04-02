@@ -51,18 +51,11 @@ qx.Class.define("qxm.ui.form.authentication.Login",
 
     var controller = this.__controller = new qx.data.controller.Form(null, this);
     var model = controller.createModel();
-
+/*
     var idleM = qxe.util.IdleManager.getInstance();
-    idleM.addListener("active", function() {
-      this.debug("active");
-    }, this);
-    idleM.addListener("idle", function() {
-      this.debug("idle");
-    }, this);
-    idleM.addListener("away", function() {
-      this.debug("away");
-    }, this);
+    idleM.addListener("away", this._timeout, this);
     idleM.start();
+ */
   },
 
 
@@ -362,6 +355,27 @@ qx.util.Serializer.toUriParameter(model);
     },
 
     _help : function(e)
+    {
+    },
+
+    /**
+     * Time out from login.
+     */
+    _timeout : function()
+    {
+      if (qx.core.Environment.get("qx.debug"))
+      {
+        this.debug("Timeout from login.");
+      }
+
+      this.reset();
+      this._logout();
+    },
+
+    /**
+     * Logged out function automatically called.
+     */
+    _logout : function()
     {
     }
   },

@@ -33,7 +33,7 @@ qx.Class.define("qxm.ui.pane.authentication.Logout",
   {
     this.base(arguments);
 
-    this._createChildControl("pane");
+    this._createChildControl("logout-pane");
   },
 
 
@@ -61,13 +61,15 @@ qx.Class.define("qxm.ui.pane.authentication.Logout",
 
       switch(id)
       {
-        case "pane":
-          var def = qxe.ui.pane.OptionPane.INFO;
-          def.buttons = {
-            OK : qxe.ui.form.ButtonPane.OK,
-            CANCEL : qxe.ui.form.ButtonPane.CANCEL
+        case "logout-pane":
+          var def = qxe.ui.pane.OptionPane.QUEST;
+/*          def["buttonPane"] = {
+            buttons : {
+              OK : qxe.ui.form.ButtonPane.OK,
+              CANCEL : qxe.ui.form.ButtonPane.CANCEL
+            }
           };
-
+*/
           control = new qxe.ui.pane.OptionPane(this.tr("Are you sure you want to log out?"));
           control.set(def);
 

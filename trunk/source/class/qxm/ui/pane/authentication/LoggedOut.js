@@ -16,11 +16,11 @@
 ************************************************************************ */
 
 /**
- * A logged out message.
+ * A logged out option pane.
  */
-qx.Class.define("qxm.ui.form.authentication.LoggedOut",
+qx.Class.define("qxm.ui.pane.authentication.LoggedOut",
 {
-  extend : qx.ui.core.Widget,
+  extend : qxe.ui.pane.OptionPane,
 
 
   /*
@@ -33,8 +33,7 @@ qx.Class.define("qxm.ui.form.authentication.LoggedOut",
   {
     this.base(arguments);
 
-    this._createChildControl("label");
-    this._createChildControl("button-pane");
+    this._createChildControl("pane");
   },
 
 
@@ -43,16 +42,7 @@ qx.Class.define("qxm.ui.form.authentication.LoggedOut",
       MEMBERS
    *****************************************************************************
    */
-/*  
-  //Forces caches to obtain a new copy of the page from the origin server
-  response.setHeader("Cache-Control","no-cache");
-  //Directs caches not to store the page under any circumstance
-  response.setHeader("Cache-Control","no-store");
-  //Causes the proxy cache to see the page as "stale"
-  response.setDateHeader("Expires", 0);
-  //HTTP 1.0 backward compatibility
-  response.setHeader("Pragma","no-cache");
-*/
+
   members :
   {
     // Overridden
@@ -62,54 +52,15 @@ qx.Class.define("qxm.ui.form.authentication.LoggedOut",
 
       switch(id)
       {
-        case "label":
-          control = new qx.ui.basic.Label(this.tr("Are you sure you want to log out?"));
+        case "pane":
+          control = new qxe.ui.pane.OptionPane(this.tr("You are now logged out."));
+          control.set(qxe.ui.pane.OptionPane.INFO);
 
-          this.add(control, null, null, "message");
-          break;
-
-        case "button-pane":
-          control = new qxe.ui.form.ButtonPane();
-
-          // Button pane buttons
-          var okB = new qx.ui.form.Button();
-          okB.set(qxe.ui.form.ButtonPane.OK);
-          okB.setToolTipText(this.tr("Logout."));
-          okB.addListener("execute", this._ok, this);
-
-          control.add(okB, "affirmative");
-
-          var cancelB = new qx.ui.form.Button();
-          cancelB.set(qxe.ui.form.ButtonPane.CANCEL);
-          cancelB.setToolTipText(this.tr("Cancel logout."));
-          cancelB.addListener("execute", this._cancel, this);
-
-          control.add(cancelB, "cancel");
-
-          var helpB = new qx.ui.form.Button();
-          helpB.set(qxe.ui.form.ButtonPane.HELP);
-          helpB.setToolTipText(this.tr("Get help."));
-          helpB.addListener("execute", this._help, this);
-
-          control.add(helpB, "help");
-
-          this.addButton(control);
+          this._add(control);
           break;
       }
       
-      return control;
+      return control || this.base(arguments, id);
     }
-  },
-
-
-  /*
-   *****************************************************************************
-      DESTRUCTOR
-   *****************************************************************************
-   */
-
-  destruct : function()
-  {
-//		this._disposeObjects();
   }
 });

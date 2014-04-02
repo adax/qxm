@@ -64,18 +64,14 @@ qx.Class.define("qxm.demo.Application",
       -------------------------------------------------------------------------
       */
 
-      // Create a button
-      var logout = new qxm.ui.pane.authentication.Logout();
-      logout.addListener("logoutAccepted", function(ev) {
-         var logoutData = ev.getData();
-         alert("Log out now!");
-      });
+      // Create a logged out option pane
+      var loggedOut = new qxm.ui.pane.authentication.LoggedOut();
 
       // Document is the application root
       var doc = this.getRoot();
 
       // Add button to document at fixed coordinates
-      doc.add(logout, {left: 10, top: 10});
+      doc.add(loggedOut, {left: 10, top: 10});
     }
   }
 });
